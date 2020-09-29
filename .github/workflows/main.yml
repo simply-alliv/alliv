@@ -28,7 +28,7 @@ jobs:
           CI: true
 
   build:
-    if: ${{ github.event_name == 'push' && github.repository == 'simply-alliv/laundry-web-app' }}
+    if: ${{ github.event_name == 'push' && github.repository == 'simply-alliv/alliv' }}
     needs: test
     runs-on: ubuntu-latest
 
