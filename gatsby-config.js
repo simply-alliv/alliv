@@ -37,18 +37,26 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-web-font-loader`,
       options: {
-        fonts: [
-          `kirvy\:400,700`,
-          `londrina shadow\:400`, // you can also specify font weights and styles
-        ],
-        display: "swap",
+        google: {
+          families: [`Kirvy:400,700`, `Londrina Shadow:400`],
+        },
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `kirvy\:400,700`,
+    //       `londrina shadow\:400`, // you can also specify font weights and styles
+    //     ],
+    //     display: "swap",
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     {
-      resolve: "gatsby-plugin-firebase",
+      resolve: `gatsby-plugin-firebase`,
       options: {
         credentials: {
           apiKey: config.FIREBASE_API_KEY,
