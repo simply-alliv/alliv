@@ -1,3 +1,3 @@
-# Thosi Laundry Web App
+# Allistair Vilakazi Portfolio
 
-Single page application for Thosi Laundry's laundry service. Built using Gatsby.
+Web application for my portfolio. Built using Gatsby.
