@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "alliv-c02d2"
+  },
+  "targets": {
+    "alliv-c02d2": {
+      "hosting": {
+        "app": [
+          "alliv"
+        ]
+      }
+    }
+  }
+}
