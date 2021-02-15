@@ -16,7 +16,7 @@ export const About: FunctionComponent = () => {
           <p>
             I am a full-stack JavaScript developer. I also dabble with Flutter
             and Dart for cross-platform native apps. I am currently obsessed
-            with micro-services.
+            with micro-services and frontend technologies.
           </p>
         </div>
         <div className="about slide-2 background-dark flex flex__column">
@@ -43,11 +43,11 @@ export const About: FunctionComponent = () => {
           <p>
             <span className="display__block">-</span>
             <span className="display__block">
-              I can create micro-services and backend servers with 2 server-side
+              I can create micro-services and backend servers with 3 server-side
               framworks
             </span>
             <span className="display__block">
-              <strong>Express</strong> and <strong>Nest</strong>
+              <strong>Express</strong>, <strong>Nest</strong>, and <strong>go-kit (Golang)</strong>
             </span>
           </p>
           <p>
@@ -77,7 +77,7 @@ export const About: FunctionComponent = () => {
           <p>
             <span className="display__block">-</span>
             <span className="display__block">
-              I work mainly on building micro-services, or APIs, with
+              I have work mainly on building micro-services, or APIs, with
               JavaScript, Typescript, and Python for MicroAPI. MicroAPI is an
               idea where "API" becomes the new "npm package". As a JavaScript
               developer, I use NPM a lot because sharing code is always better.
@@ -92,17 +92,17 @@ export const About: FunctionComponent = () => {
               I develop through testing (TDD) with Jest and Cypress,
             </span>
             <span className="display__block">
-              I practice Agile processes with my remote team with GitHub
+              I practice Agile processes with remote teams using GitHub
               Projects, Issues, Slack, and Zoom,
             </span>
             <span className="display__block">
               I implement best practices and clean code,
             </span>
             <span className="display__block">
-              I enjoy evening jogs and play my favourite games,
+              I enjoy evening jogs and playing my favourite games,
             </span>
             <span className="display__block">
-              I am an environmentalist who cares about water and agriculture,
+              I am an environmentalist who cares about water and sustainability,
             </span>
             <span className="display__block">
               I am a pianist (It’s important to note that I am no Lang Lang),
@@ -128,7 +128,7 @@ export const About: FunctionComponent = () => {
             </span>
             <span className="display__block">
               I went to the University of Cape Town for 1 year. During the time,
-              I majored in Biochemistry and Genetics.
+              I took some courses in Biochemistry and Genetics.
             </span>
           </p>
           <p>
@@ -144,12 +144,12 @@ export const About: FunctionComponent = () => {
           <p>
             <span className="display__block">-</span>
             <span className="display__block">
-              <strong>2020 - present</strong>
+              <strong>2020 - 2020</strong>
             </span>
             <span className="display__block">
-              I started as an HNG intern in July and am currently a core
+              I started as an HNG intern in July and worked as a core
               maintainer of one the startups (MicroAPI) that stemmed from of the
-              internship.
+              internship for a few weeks after the 10 week internship.
             </span>
           </p>
         </div>
