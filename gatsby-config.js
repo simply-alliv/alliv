@@ -39,18 +39,10 @@ module.exports = {
         background_color: `#1c1c1c`,
         theme_color: `#ffbb0b`,
         display: `minimal-ui`,
-        icon: `src/images/logomark.png`, // This path is relative to the root of the site.
+        icon: `src/images/alliv-logo-black.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-web-font-loader`,
-      options: {
-        google: {
-          families: [`Kirvy:400,700`, `Londrina Shadow:400`],
-        },
-      },
-    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-firebase`,
