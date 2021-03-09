@@ -1,16 +1,42 @@
 import React, { FunctionComponent } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { AppBar, Toolbar, Typography, Tooltip } from '@material-ui/core'
 import { Theme, makeStyles, createStyles } from "@material-ui/core/styles";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
-import { Button, IconButton, Link } from "gatsby-theme-material-ui";
+import { IconButton, Link } from "gatsby-theme-material-ui";
 import ThemeTopLayout from "gatsby-theme-material-ui-top-layout/src/components/top-layout";
 import theme from "../../theme"
 import { Routes } from "../../common/enums"
 import { ElevateAppBar } from './elevateAppBar'
+import { InitialTransition } from '../initial-transition'
+
+const duration = 0.2
+const variants = {
+  initial: {
+    opacity: 0,
+    y: 100
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: {
+      duration: duration,
+      delay: duration,
+      when: "beforeChildren",
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 200,
+    transition: { duration: duration },
+  },
+}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      overflowY: 'hidden',
       flexGrow: 1,
     },
     spacer: {
@@ -30,6 +56,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <ThemeTopLayout theme={theme}>
       <div className={classes.root}>
+        <InitialTransition />
         <ElevateAppBar>
           <AppBar position="sticky" color="default">
             <Toolbar>
@@ -56,7 +83,17 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
             </Toolbar>
           </AppBar>
         </ElevateAppBar>
-        <main>{children}</main>
+        <AnimatePresence exitBeforeEnter>
+          <motion.main
+            key={location.pathname}
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            {children}
+          </motion.main>
+        </AnimatePresence>
       </div>
     </ThemeTopLayout>
   )

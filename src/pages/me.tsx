@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, Fragment } from "react"
 
-import { Layout, SEO } from "../components"
+import { SEO } from "../components"
 import { Me } from "../containers"
 
 const MePage: FunctionComponent = () => {
   return (
-    <Layout>
+    <Fragment>
       <SEO title="Me" />
       <Me />
-    </Layout>
+    </Fragment>
   )
 }
 
