@@ -1,0 +1,38 @@
+{
+  "id": "some-of-the-things-i-do",
+  "title": "Some of the things I do",
+  "sections": [
+    {
+      "title": "",
+      "description": "I have worked extensively on building micro-services, or APIs, with JavaScript, Typescript, and Python for MicroAPI. Furthermore, I have worked with Golang to build micro-services for personal projects."
+    },
+    {
+      "title": "",
+      "description": "I develop through testing (TDD) with Jest and Cypress,"
+    },
+    {
+      "title": "",
+      "description": "I practice Agile processes with remote teams using GitHub Projects, Issues, Slack, and Zoom,"
+    },
+    {
+      "title": "",
+      "description": "I implement best practices and clean code,"
+    },
+    {
+      "title": "",
+      "description": "I enjoy evening jogs and playing my favourite games,"
+    },
+    {
+      "title": "",
+      "description": "I am an environmentalist who cares about water and sustainability,"
+    },
+    {
+      "title": "",
+      "description": "I am a pianist (It’s important to note that I am no Lang Lang),"
+    },
+    {
+      "title": "",
+      "description": "I love my family."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "personal-portfolio-site",
+  "title": "My Personal Portfolio Site (AlliV.com)",
+  "description": "The website you are currently browsing is actually another project of mine that I began just after the HNG internship ended. This site will be the portal to my journey as a software developer. This is only the beginning and there will be much more to come from this site. This static site is powered by React and Firebase Hosting.",
+  "repoLink": "https://github.com/simply-alliv/alliv",
+  "type": "Frontend"
+}

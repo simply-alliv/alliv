@@ -1,53 +1,63 @@
 import React, { FunctionComponent } from "react"
-
-import { Link } from "gatsby"
-
-import { Logo } from "../../components"
+import { AppBar, Toolbar, Typography, Tooltip } from '@material-ui/core'
+import { Theme, makeStyles, createStyles } from "@material-ui/core/styles";
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
+import { Button, IconButton, Link } from "gatsby-theme-material-ui";
+import ThemeTopLayout from "gatsby-theme-material-ui-top-layout/src/components/top-layout";
+import theme from "../../theme"
 import { Routes } from "../../common/enums"
+import { ElevateAppBar } from './elevateAppBar'
 
-import "./index.css"
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    spacer: {
+      flexGrow: 1,
+    },
+    link: {
+      paddingInline: '8px'
+    }
+  }),
+);
 
 type LayoutProps = {}
 
 export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
+  const classes = useStyles()
+
   return (
-    <div className="shell flex flex__column flex__justify-content--space-between">
-      <div className="navigation navigation-top flex flex__justify-content--center flex__align-items--center">
-        <Link className="button" id="home-link" to={Routes.home}>
-          <Logo />
-        </Link>
-      </div>
-      <div className="navigation navigation-left flex flex__align-items--center">
-        <Link
-          className="button vertical-button"
-          id="about-link"
-          to={Routes.about}
-        >
-          About
-        </Link>
-      </div>
-      <div className="navigation navigation-right flex flex__align-items--center">
-        <Link
-          className="button vertical-button"
-          id="portfolio-link"
-          to={Routes.portfolio}
-        >
-          Portfolio
-        </Link>
-      </div>
-      <div className="routes">
+    <ThemeTopLayout theme={theme}>
+      <div className={classes.root}>
+        <ElevateAppBar>
+          <AppBar position="sticky" color="default">
+            <Toolbar>
+              <Link color="inherit" to={Routes.home}>
+                <Typography variant="h6">
+                  AlliV
+                </Typography>
+              </Link>
+              <div className={classes.spacer}></div>
+              <Link color="inherit" to={Routes.works} className={classes.link}>Works</Link>
+              <Link color="inherit" to={Routes.me} className={classes.link}>Me</Link>
+              <div className={classes.spacer}></div>
+              <Tooltip title="Download Resume/CV">
+                <IconButton
+                  aria-label="download-resume-cv"
+                  color="inherit"
+                  component="a"
+                  href="/documents/allistair-vilakazi-cv.pdf"
+                  download
+                >
+                  <CloudDownloadIcon />
+                </IconButton>
+              </Tooltip>
+            </Toolbar>
+          </AppBar>
+        </ElevateAppBar>
         <main>{children}</main>
       </div>
-      <div className="navigation navigation-bottom flex flex__justify-content--center flex__align-items--center">
-        <a
-          className="button"
-          id="download-resume-link"
-          href="/documents/allistair-vilakazi-cv.pdf"
-          download
-        >
-          Download Full Resume (PDF)
-        </a>
-      </div>
-    </div>
+    </ThemeTopLayout>
   )
 }

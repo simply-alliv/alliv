@@ -1,0 +1,9 @@
+{
+  "id": "authentication-micro-service",
+  "title": "Authentication Micro-service",
+  "description": "This is one of my favourite micro-services. Security seems to be something I enjoy learning about. This micro-service is currently complete but has a few important features missing. So we decided to make an overhaul of v1 of the API and also support multi-tenancy for v2 (in development) of the API.",
+  "repoLink": "https://github.com/simply-alliv/auth-microapi",
+  "srcWebm": "/videos/authentication-microapi-short-preview.webm",
+  "srcMp4": "/videos/authentication-microapi-short-preview.mp4",
+  "type": "Backend"
+}

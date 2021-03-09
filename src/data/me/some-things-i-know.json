@@ -1,0 +1,26 @@
+{
+  "id": "some-of-the-things-i-know",
+  "title": "Some of the things I know",
+  "sections": [
+    {
+      "title": "I am fluent in 3 programming languages",
+      "description": "JavaScript (TypeScript), Golang, and Dart"
+    },
+    {
+      "title": "I can design and implement web apps with 2 web framworks",
+      "description": "Angular and React"
+    },
+    {
+      "title": "I can create micro-services and backend servers with 3 server-side framworks",
+      "description": "Express, Nest, and Go-kit"
+    },
+    {
+      "title": "I can automate workflows (CI/CD) and promote Agile processes with 2 tools",
+      "description": "GitHub Actions and Travis"
+    },
+    {
+      "title": "A few other things I know",
+      "description": "MongoDB, Firebase, Azure, TDD (Test-driven development), Scrum and Kanban Boards, UI/UX Design, and Flutter"
+    }
+  ]
+}

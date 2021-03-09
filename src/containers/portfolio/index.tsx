@@ -1,110 +1,146 @@
-import React, { FunctionComponent } from "react"
-import { CSSTransition } from "react-transition-group"
+import React, { FunctionComponent, useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import { Box, Container, Card, CardContent, CardActions, Typography, Divider, Tooltip } from "@material-ui/core"
+import { Theme, makeStyles, createStyles } from "@material-ui/core/styles"
+import { Button, IconButton, Link } from "gatsby-theme-material-ui"
+import PreviewIcon from "@material-ui/icons/Visibility"
+import { PreviewDialog } from "./previewDialog"
 
-import { Card, CardTitle, CardVideo } from "../../components"
+export interface PortfolioItem {
+  id: string
+  title: string
+  description: string
+  srcWebm?: string
+  srcMp4?: string
+  repoLink: string
+  type: 'Backend' | 'Frontend' | 'Fullstack' | 'Other'
+}
 
-import "./index.css"
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(256px, 1fr))',
+      gridGap: theme.spacing(4),
+    },
+    card: {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    content: {
+      display: 'flex',
+      flexDirection: 'column',
+      flexGrow: 1,
+    },
+    space: {
+      flexGrow: 1
+    }
+  }),
+);
 
 export const Portfolio: FunctionComponent = () => {
+  const classes = useStyles()
+  const items: PortfolioItem[] = []
+  const [open, setOpen] = useState(false);
+  const [selectedPortfolio, setSelectedPortfolio] = useState<PortfolioItem>(null);
+
+  const handlePreviewOpen = (portfolio: PortfolioItem) => {
+    setSelectedPortfolio(portfolio);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const { allPortfolioJson } = useStaticQuery(graphql`
+    query {
+      allPortfolioJson {
+        edges {
+          node {
+            id
+            title
+            description
+            srcWebm
+            srcMp4
+            repoLink
+            type
+          }
+        }
+      }
+    }
+  `)
+
+  const mapEdgesToPortfolioItems = () => {
+    const edges = allPortfolioJson.edges
+
+    if (edges && edges.length > 0) {
+      const data = edges.map(edge => ({
+        id: edge.node.id,
+        title: edge.node.title,
+        description: edge.node.description,
+        srcWebm: edge.node.srcWebm,
+        srcMp4: edge.node.srcMp4,
+        repoLink: edge.node.repoLink,
+        type: edge.node.type,
+      }))
+
+      items.push(...data)
+    }
+  }
+
+  mapEdgesToPortfolioItems()
+
   return (
-    <CSSTransition in={true} timeout={300} classNames="portfolio">
-      <div className="portfolio background-light">
-        <div className="grid grid-autofit">
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/comment-microapi"
-          >
-            <CardVideo
-              srcWebm="/videos/comment-microapi-short-preview.webm"
-              srcMp4="/videos/comment-microapi-short-preview.mp4"
-            />
-            <CardTitle
-              title="Comment Micro-service"
-              subtitle="Imagine a micro-service that enables you to add comment and replies features through a plug-and-play process. This is the ultimate goal of the MicroAPI project #DeveloperLifeSimplified. The service also enables multi-tenancy through the creation of organizations."
-            />
-          </Card>
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/real-time-tic-tac-toe"
-          >
-            <CardVideo
-              srcWebm="/videos/real-time-tic-tac-toe-short-preview.webm"
-              srcMp4="/videos/real-time-tic-tac-toe-short-preview.mp4"
-            />
-            <CardTitle
-              title="Real-time Tic-Tac-Toe Game"
-              subtitle="So during my internship with HNG, we had a side competition in which we had to build a real-time multiplayer game using sockets. It was the first time I made a game and the first time I used sockets. This project improved my understanding of real-time web applications."
-            />
-          </Card>
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/auth-microapi"
-          >
-            <CardVideo
-              srcWebm="/videos/authentication-microapi-short-preview.webm"
-              srcMp4="/videos/authentication-microapi-short-preview.mp4"
-            />
-            <CardTitle
-              title="Authentication Micro-service"
-              subtitle="This is one of my favourite micro-services. Security seems to be something I enjoy learning about. This micro-service is currently complete but has a few important features missing. So we decided to make an overhaul of v1 of the API and also support multi-tenancy for v2 (in development) of the API."
-            />
-          </Card>
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/node-google-authenticator"
-          >
-            <CardVideo
-              srcWebm="/videos/node-google-authenticator-short-preview.webm"
-              srcMp4="/videos/node-google-authenticator-short-preview.mp4"
-            />
-            <CardTitle
-              title="Google Authenticator Node App (2FA)"
-              subtitle="This was one of those projects that truly helped me understand the idea behind two-factor authentication and how it is implemented. Security and privacy is an ever growing concern and understanding how to effectively protect your user's data is important. #ResponsibleDeveloper."
-            />
-          </Card>
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/comment-microapi-demo"
-          >
-            <CardVideo
-              srcWebm="/videos/comment-microapi-demo-short-preview.webm"
-              srcMp4="/videos/comment-microapi-demo-short-preview.mp4"
-            />
-            <CardTitle
-              title="Comment Micro-service Demo"
-              subtitle="Of course our comment micro-service had a companion demo app so that a client could have a simple and informative interaction to better understand how the service would work once it was plugged into their applications and to also showcase the available features. I designed this app using Figma and built it with React."
-            />
-          </Card>
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/inbound-parse-multipart-parser"
-          >
-            <CardVideo
-              srcWebm="/videos/inbound-parse-multipart-parser-short-preview.webm"
-              srcMp4="/videos/inbound-parse-multipart-parser-short-preview.mp4"
-            />
-            <CardTitle
-              title="Inbound Parse Multipart Parser"
-              subtitle="Most of my projects tend to use Azure for most cloud services. Serverless functions are amazing little applications but can sometimes be limited. Whenever I use SendGrid for handling email's, I use the Inbound Parse Webhook by SendGrid. The only problem, the Azure function doesn't have a native parser for multipart data received from emails."
-            />
-          </Card>
-          <Card
-            height="100%"
-            href="https://github.com/simply-alliv/allistair-vilakazi"
-          >
-            <CardTitle
-              title="My Personal Portfolio Site"
-              subtitle="The website you are currently browsing is actually another project of mine that I began just after the HNG internship ended. This site will be the portal to my journey as a software developer. This is only the beginning and there will be much more to come from this site. This site is powered by React, Docker, and NGINX."
-            />
-          </Card>
-          <Card height="100%" href="https://github.com/simply-alliv">
-            <CardTitle
-              title="See more of my art"
-              subtitle="These are some of the recent highlights of my ever-growing treasure trove of projects that I have worked on. For me coding is an art, it calms my mind and has improved my logical thinking. So be sure to visit my GitHub profile to see more of my technological art that was created with some of my friends."
-            />
-          </Card>
+    <Container>
+      <Box pt={6} pb={8}>
+        <div className={classes.container}>
+          {items.map(item => {
+            return (
+              <Card className={classes.card} variant="outlined">
+                <CardContent className={classes.content}>
+                  <Typography className={classes.space} variant="h5" gutterBottom>{item.title}</Typography>
+                  <Divider />
+                  <Typography variant="body2">{item.type}</Typography>
+                </CardContent>
+                <CardActions>
+                  {
+                  item.repoLink?.length > 0
+                    ? <Button
+                        component={Link}
+                        href={item.repoLink}
+                        size="small"
+                        target="_blank"
+                        rel="noopener"
+                        color="primary"
+                      >
+                        GitHub
+                      </Button>
+                    : null
+                  }
+                  <div className={classes.space}></div>
+                  {
+                    item.srcMp4 || item.srcWebm
+                      ? <Tooltip title="Preview">
+                          <IconButton
+                            aria-label="preview"
+                            size="small"
+                            color="primary"
+                            onClick={() => handlePreviewOpen(item)}
+                          >
+                            <PreviewIcon />
+                          </IconButton>
+                        </Tooltip>
+                      : null
+                  }
+                </CardActions>
+              </Card>
+            )
+          })}
         </div>
-      </div>
-    </CSSTransition>
+        <PreviewDialog open={open} selectedPortfolio={selectedPortfolio} onClose={handleClose} />
+      </Box>
+    </Container>
   )
 }
