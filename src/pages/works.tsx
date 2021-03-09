@@ -1,13 +1,13 @@
 import React, { FunctionComponent, Fragment } from "react"
 
 import { SEO } from "../components"
-import { Home } from "../containers"
+import { Portfolio } from "../containers"
 
 const IndexPage: FunctionComponent = () => {
   return (
     <Fragment>
-      <SEO title="Home" />
-      <Home />
+      <SEO title="Works" />
+      <Portfolio />
     </Fragment>
   )
 }

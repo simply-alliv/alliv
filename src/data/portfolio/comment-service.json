@@ -1,0 +1,9 @@
+{
+  "id": "comment-micro-service",
+  "title": "Comment Micro-service",
+  "description": "Imagine a micro-service that enables you to add comment and replies features through a plug-and-play process. This is the ultimate goal of the MicroAPI project #DeveloperLifeSimplified. The service also enables multi-tenancy through the creation of organizations.",
+  "repoLink": "https://github.com/simply-alliv/comment-microapi",
+  "srcWebm": "/videos/comment-microapi-short-preview.webm",
+  "srcMp4": "/videos/comment-microapi-short-preview.mp4",
+  "type": "Backend"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "tic-tac-toe-game",
+  "title": "Tic-Tac-Toe Game",
+  "description": "So during my internship with HNG, we had a side competition in which we had to build a real-time multiplayer game using sockets. It was the first time I made a game and the first time I used sockets. This project improved my understanding of real-time web applications.",
+  "repoLink": "https://github.com/simply-alliv/real-time-tic-tac-toe",
+  "srcWebm": "/videos/real-time-tic-tac-toe-short-preview.webm",
+  "srcMp4": "/videos/real-time-tic-tac-toe-short-preview.mp4",
+  "type": "Fullstack"
+}

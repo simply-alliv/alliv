@@ -21,6 +21,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -32,28 +39,10 @@ module.exports = {
         background_color: `#1c1c1c`,
         theme_color: `#ffbb0b`,
         display: `minimal-ui`,
-        icon: `src/images/logomark.png`, // This path is relative to the root of the site.
+        icon: `src/images/alliv-logo-black.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-web-font-loader`,
-      options: {
-        google: {
-          families: [`Kirvy:400,700`, `Londrina Shadow:400`],
-        },
-      },
-    },
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       `kirvy\:400,700`,
-    //       `londrina shadow\:400`, // you can also specify font weights and styles
-    //     ],
-    //     display: "swap",
-    //   },
-    // },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-firebase`,
@@ -67,6 +56,25 @@ module.exports = {
           messagingSenderId: config.FIREBASE_MESSAGING_SENDER_ID,
           appId: config.FIREBASE_APP_ID,
           measurementId: config.FIREBASE_MEASUREMENT_ID,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-theme-material-ui`,
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: `Source Code Pro`,
+                variants: [`400`],
+              },
+              {
+                family: `Montserrat`,
+                variants: [`500`],
+              },
+            ],
+          },
         },
       },
     },

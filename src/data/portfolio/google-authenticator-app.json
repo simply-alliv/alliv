@@ -1,0 +1,9 @@
+{
+  "id": "google-authenticator-node-app",
+  "title": "Google Authenticator Node App (2FA)",
+  "description": "This was one of those projects that truly helped me understand the idea behind two-factor authentication and how it is implemented. Security and privacy is an ever growing concern and understanding how to effectively protect your user's data is important. #ResponsibleDeveloper.",
+  "repoLink": "https://github.com/simply-alliv/node-google-authenticator",
+  "srcWebm": "/videos/node-google-authenticator-short-preview.webm",
+  "srcMp4": "/videos/node-google-authenticator-short-preview.mp4",
+  "type": "Backend"
+}

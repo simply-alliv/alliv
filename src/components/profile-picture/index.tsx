@@ -12,7 +12,7 @@ interface ProfilePictureProps {
 export const ProfilePicture: FunctionComponent<ProfilePictureProps> = isOpaque => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { relativePath: { regex: "/profile-picture.jpg/" } }) {
+      allFile(filter: { relativePath: { regex: "/profile-picture.png/" } }) {
         edges {
           node {
             childImageSharp {
@@ -29,7 +29,7 @@ export const ProfilePicture: FunctionComponent<ProfilePictureProps> = isOpaque =
   return (
     <Image
       fluid={data.allFile.edges[0].node.childImageSharp.fluid}
-      alt="Allistair Vilakazi."
+      alt="Fullstack Software Developer Allistair Vilakazi."
       className={isOpaque ? "opaque" : ""}
     />
   )

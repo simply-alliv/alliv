@@ -1,0 +1,9 @@
+{
+  "id": "comment-micro-service-demo",
+  "title": "Comment Micro-service Demo",
+  "description": "Of course our comment micro-service had a companion demo app so that a client could have a simple and informative interaction to better understand how the service would work once it was plugged into their applications and to also showcase the available features. I designed this app using Figma and built it with React.",
+  "repoLink": "https://github.com/simply-alliv/comment-microapi-demo",
+  "srcWebm": "/videos/comment-microapi-demo-short-preview.webm",
+  "srcMp4": "/videos/comment-microapi-demo-short-preview.mp4",
+  "type": "Frontend"
+}

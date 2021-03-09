@@ -1,0 +1,9 @@
+{
+  "id": "inbound-parse-multipart-parser",
+  "title": "Inbound Parse Multipart Parser",
+  "description": "Most of my projects tend to use Azure for most cloud services. Serverless functions are amazing little applications but can sometimes be limited. Whenever I use SendGrid for handling email's, I use the Inbound Parse Webhook by SendGrid. The only problem, the Azure function doesn't have a native parser for multipart data received from emails.",
+  "repoLink": "https://github.com/simply-alliv/inbound-parse-multipart-parser",
+  "srcWebm": "/videos/inbound-parse-multipart-parser-short-preview.webm",
+  "srcMp4": "/videos/inbound-parse-multipart-parser-short-preview.mp4",
+  "type": "Backend"
+}
